@@ -1,4 +1,4 @@
-# crm-vue
+# CRM
 
 ## Project setup
 ```
