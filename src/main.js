@@ -1,12 +1,16 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
-import store from './store';
+import router from './router/router';
+import store from './store/store';
 import Vuelidate from 'vuelidate';
-import messagePlugin from './utils/message.plugin.js'
+import messagePlugin from './utils/message.plugin.js';
 import dateFilter from "./filters/date.filter.js";
 import './registerServiceWorker';
-import 'materialize-css/dist/js/materialize.min.js'
+import 'materialize-css/dist/js/materialize.min.js';
+
+import firebase from 'firebase/app';
+import 'firebase/database'
+import 'firebase/auth'
 
 Vue.config.productionTip = false
 
@@ -14,8 +18,25 @@ Vue.use(messagePlugin);
 Vue.use(Vuelidate);
 Vue.filter('date', dateFilter);
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+firebase.initializeApp({
+    apiKey: "AIzaSyBJBu9qmTkzRyK28UC3OfL9usbIEID4mw8",
+    authDomain: "crm-db-603ba.firebaseapp.com",
+    databaseURL: "https://crm-db-603ba.firebaseio.com",
+    projectId: "crm-db-603ba",
+    storageBucket: "crm-db-603ba.appspot.com",
+    messagingSenderId: "967662286026",
+    appId: "1:967662286026:web:d51b32712b11a0f4ac3033",
+    measurementId: "G-EPGF3HYM9G"
+});
+
+let app;
+
+firebase.auth().onAuthStateChanged(() =>{
+    if (!app) {
+        app = new Vue({
+            router,
+            store,
+            render: h => h(App)
+        }).$mount('#app')
+    }
+})
