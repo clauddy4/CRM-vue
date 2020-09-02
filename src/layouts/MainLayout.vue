@@ -23,13 +23,13 @@
   import Sidebar from "../components/app/Sidebar";
 
     export default {
-      name: "MainLayout",
-      components: {
-        Navbar, Sidebar
-      },
-      data: () => ({
-        isOpen: true,
-      }),
+        name: "MainLayout",
+        components: {
+            Navbar, Sidebar
+        },
+        data: () => ({
+            isOpen: true,
+        }),
     }
 </script>
 

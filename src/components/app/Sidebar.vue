@@ -16,18 +16,18 @@
 
 <script>
   export default {
-    name: 'Sidebar',
-    props: ['value'],
-    data: () => ({
-      links: [
-        {title: 'Счёт', url: '/', exact: true},
-        {title: 'История', url: '/history'},
-        {title: 'Планирование', url: '/planning'},
-        {title: 'Новая запись', url: '/record'},
-        {title: 'Категории', url: '/categories'}
+      name: 'Sidebar',
+      props: ['value'],
+      data: () => ({
+          links: [
+              {title: 'Счёт', url: '/', exact: true},
+              {title: 'История', url: '/history'},
+              {title: 'Планирование', url: '/planning'},
+              {title: 'Новая запись', url: '/record'},
+              {title: 'Категории', url: '/categories'}
 
-      ]
-    })
+          ]
+      })
   }
 </script>
 

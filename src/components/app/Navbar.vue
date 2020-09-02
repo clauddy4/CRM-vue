@@ -42,29 +42,29 @@
 
 <script>
   export default {
-    name: 'Navbar',
-    data: () => ({
-      date: new Date(),
-      interval: null,
-      dropdown: null
-    }),
-    methods: {
-      logout() {
-        this.$router.push('/login?message=logout')
+      name: 'Navbar',
+          data: () => ({
+              date: new Date(),
+              interval: null,
+              dropdown: null
+          }),
+      methods: {
+          logout() {
+              this.$router.push('/login?message=logout')
+          }
+      },
+      mounted() {
+          this.interval = setInterval(() => {
+              this.date = new Date();
+          }, 1000)
+          this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
+              constrainWidth: true
+          })
+      },
+      beforeDestroy() {
+          clearInterval(this.interval)
+          if (this.dropdown && this.dropdown.destroy) this.dropdown.destroy()
       }
-    },
-    mounted() {
-      this.interval = setInterval(() => {
-          this.date = new Date();
-      }, 1000)
-      this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
-        constrainWidth: true
-      })
-    },
-    beforeDestroy() {
-      clearInterval(this.interval)
-      if (this.dropdown && this.dropdown.destroy) this.dropdown.destroy()
-    }
   }
 </script>
 
