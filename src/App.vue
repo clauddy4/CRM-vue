@@ -7,21 +7,20 @@
 </template>
 
 <script>
-  import AuthLayout from "./layouts/AuthLayout";
-  import MainLayout from "./layouts/MainLayout";
-
+  import EmptyLayout from './layouts/EmptyLayout'
+  import MainLayout from './layouts/MainLayout'
   export default {
-      computed: {
-          layout() {
-              return (this.$route.meta.layout || 'auth') + '-layout'
-          }
-      },
-      components: {
-          AuthLayout,
-          MainLayout,
+    computed: {
+      layout() {
+        return (this.$route.meta.layout || 'empty') + '-layout'
       }
+    },
+    components: {
+      EmptyLayout, MainLayout
+    }
   }
 </script>
+
 
 <style lang="scss">
   @import '~materialize-css/dist/css/materialize.min.css';

@@ -57,7 +57,9 @@
     </ul>
 
     <main class="app-content">
-      <div class="app-page"></div>
+      <div class="app-page">
+        <router-view />
+      </div>
     </main>
 
     <div class="fixed-action-btn">
@@ -66,7 +68,6 @@
       </a>
     </div>
   </div>
-
 </template>
 
 <script>
