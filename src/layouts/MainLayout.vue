@@ -30,6 +30,11 @@
         data: () => ({
             isOpen: true,
         }),
+        async mounted() {
+            if (!Object.keys(this.$store.getters.info).length) {
+                const uid = await this.$store.dispatch('fetchInfo')
+            }
+        }
     }
 </script>
 
