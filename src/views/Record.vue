@@ -104,7 +104,6 @@
     }),
     methods: {
         async submitHandler() {
-            console.log('click')
             if (this.$v.$invalid) {
                 this.$v.$touch()
                 return
