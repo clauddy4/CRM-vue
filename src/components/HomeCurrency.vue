@@ -7,19 +7,19 @@
         </div>
         <table>
           <thead>
-          <tr>
-            <th>Валюта</th>
-            <th>Курс</th>
-            <th>Дата</th>
-          </tr>
+            <tr>
+              <th>Валюта</th>
+              <th>Курс</th>
+              <th>Дата</th>
+            </tr>
           </thead>
 
           <tbody>
-          <tr v-for="cur in currencies" :key="cur">
-            <td>{{cur}}</td>
-            <td>{{rates[cur]}}</td>
-            <td>{{date | date('date')}}</td>
-          </tr>
+            <tr v-for="cur in currencies" :key="cur">
+              <td>{{ cur }}</td>
+              <td>{{ rates[cur] }}</td>
+              <td>{{ date | date('date') }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -28,15 +28,13 @@
 </template>
 
 <script>
-    export default {
-        name: "HomeCurrency",
-        props: ['rates', 'date'],
-        data: () => ({
-            currencies: ['RUB', 'USD', 'EUR']
-        }),
-    }
+export default {
+  name: 'HomeCurrency',
+  props: ['rates', 'date'],
+  data: () => ({
+    currencies: ['RUB', 'USD', 'EUR'],
+  }),
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

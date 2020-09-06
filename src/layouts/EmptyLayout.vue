@@ -5,24 +5,22 @@
 </template>
 
 <script>
-    import messages from '../utils/messages';
+import messages from '../utils/messages'
 
-    export default {
-        name: 'EmptyLayout',
-        computed: {
-            error() {
-                return this.$store.getters.error
-            }
-        },
-        watch: {
-            error(fbError) {
-                console.log(fbError)
-                this.$error(messages[fbError.code] || 'Что-то пошло не так')
-            }
-        }
-    }
+export default {
+  name: 'EmptyLayout',
+  computed: {
+    error() {
+      return this.$store.getters.error
+    },
+  },
+  watch: {
+    error(fbError) {
+      console.log(fbError)
+      this.$error(messages[fbError.code] || 'Что-то пошло не так')
+    },
+  },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

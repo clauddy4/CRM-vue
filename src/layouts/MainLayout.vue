@@ -1,12 +1,11 @@
 <template>
   <div>
-    <Loader v-if="loading"/>
+    <Loader v-if="loading" />
     <div v-else class="app-main-layout">
+      <Navbar @click="isOpen = !isOpen" />
+      <Sidebar v-model="isOpen" />
 
-      <Navbar @click="isOpen = !isOpen"/>
-      <Sidebar v-model="isOpen"/>
-
-      <main class="app-content" :class="{full: !isOpen}" >
+      <main class="app-content" :class="{ full: !isOpen }">
         <div class="app-page">
           <router-view />
         </div>
@@ -22,39 +21,38 @@
 </template>
 
 <script>
-  import Navbar from "../components/app/Navbar";
-  import Sidebar from "../components/app/Sidebar";
-  import messages from "../utils/messages";
+import Navbar from '../components/app/Navbar'
+import Sidebar from '../components/app/Sidebar'
+import messages from '../utils/messages'
 
-    export default {
-        name: "MainLayout",
-        components: {
-            Navbar, Sidebar
-        },
-        data: () => ({
-            isOpen: true,
-            loading: true,
-        }),
-        computed: {
-            error() {
-                return this.$store.getters.error
-            }
-        },
-        watch: {
-            error(fbError) {
-                console.log(fbError)
-                this.$error(messages[fbError.code] || 'Что-то пошло не так')
-            }
-        },
-        async mounted() {
-            if (!Object.keys(this.$store.getters.info).length) {
-                const uid = await this.$store.dispatch('fetchInfo')
-            }
-            this.loading = false;
-        }
+export default {
+  name: 'MainLayout',
+  components: {
+    Navbar,
+    Sidebar,
+  },
+  data: () => ({
+    isOpen: true,
+    loading: true,
+  }),
+  computed: {
+    error() {
+      return this.$store.getters.error
+    },
+  },
+  watch: {
+    error(fbError) {
+      console.log(fbError)
+      this.$error(messages[fbError.code] || 'Что-то пошло не так')
+    },
+  },
+  async mounted() {
+    if (!Object.keys(this.$store.getters.info).length) {
+      const uid = await this.$store.dispatch('fetchInfo')
     }
+    this.loading = false
+  },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
