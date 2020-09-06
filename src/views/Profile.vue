@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Профиль</h3>
+      <h3>{{ 'ProfileTitle' | localize }}</h3>
     </div>
 
     <form class="form" @submit.prevent="submitHandler">
@@ -14,24 +14,24 @@
             invalid: $v.name.$dirty && !$v.name.required,
           }"
         />
-        <label for="description">Имя</label>
+        <label for="description">{{ 'Name' | localize }}</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
-          >Введите имя</small
+          >{{ 'EnterName' | localize }}</small
         >
       </div>
 
       <div class="switch">
         <label>
           English
-          <input type="checkbox" />
+          <input type="checkbox" v-model="isRuLocale" />
           <span class="lever"></span>
           Русский
         </label>
       </div>
       <button class="btn waves-effect waves-light" type="submit">
-        Обновить
+        {{ 'Refresh' | localize }}
         <i class="material-icons right">send</i>
       </button>
     </form>
@@ -44,9 +44,11 @@ import { required } from 'vuelidate/lib/validators'
 export default {
   data: () => ({
     name: '',
+    isRuLocale: true,
   }),
   mounted() {
     this.name = this.info.name
+    this.isRuLocale = this.info.locale === 'ru-RU'
     setTimeout(() => {
       M.updateTextFields()
     })
@@ -64,6 +66,7 @@ export default {
       try {
         await this.updateInfo({
           name: this.name,
+          locale: this.isRuLocale ? 'ru-RU' : 'en-US',
         })
       } catch (e) {}
     },
