@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{ 'History_Title' | localize }}</h3>
     </div>
 
     <div class="history-chart">
@@ -34,6 +34,7 @@
 import HistoryTable from '../components/HistoryTable'
 import paginationMixin from '../mixins/pagination.mixin'
 import { Pie } from 'vue-chartjs'
+import localizeFilter from '../filters/localize.filter'
 
 export default {
   name: 'History',
@@ -63,7 +64,10 @@ export default {
             categoryName: categories.find((c) => c.id === record.categoryId)
               .title,
             typeClass: record.type === 'income' ? 'green' : 'red',
-            typeText: record.type === 'income' ? 'Доход' : 'Расход',
+            typeText:
+              record.type === 'income'
+                ? localizeFilter('Income')
+                : localizeFilter('Outcome'),
           }
         })
       )
