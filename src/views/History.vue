@@ -11,8 +11,8 @@
     <Loader v-if="loading" />
 
     <p class="center" v-else-if="!records.length">
-      Записей пока нет.
-      <router-link to="/record">Добавьте первую</router-link>
+      {{ 'NoRecords' | localize }}.
+      <router-link to="/record">{{ 'AddFirst' | localize }}</router-link>
     </p>
 
     <section v-else>
@@ -21,8 +21,8 @@
         v-model="page"
         :page-count="pageCount"
         :click-handler="pageChangeHandler"
-        :prev-text="'Назад'"
-        :next-text="'Вперёд'"
+        :prev-text="'Back' | localize"
+        :next-text="'Forward' | localize"
         :container-class="'pagination'"
         :page-class="'waves-effect'"
       />
@@ -76,7 +76,7 @@ export default {
         labels: categories.map((c) => c.title),
         datasets: [
           {
-            label: 'Расходы по категориям',
+            label: localizeFilter('CostsForCategories'),
             data: categories.map((c) => {
               return this.records.reduce((total, r) => {
                 if (r.categoryId === c.id && r.type === 'outcome') {
