@@ -57,7 +57,13 @@ body {
     transform: translateX(0)
 }
 
+/*.waves-effect .waves-custom .waves-ripple {*/
+/* background-color: rgba(30, 95, 116, 0.70); */
+/*}*/
+
 .navbar {
+    background: #133b5c;
+    color: #ececec;
     position: absolute;
     top: 0;
     left: 0;
@@ -65,6 +71,10 @@ body {
     height: 64px!important;
     padding: 0 2rem;
     z-index: 1000
+}
+
+.navbar-left > span {
+    color: #ececec !important;
 }
 
 .nav-wrapper {
@@ -99,6 +109,8 @@ body {
 }
 
 .page-title {
+    text-transform: uppercase;
+    color: #333;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -194,3 +206,12 @@ body {
     max-width: 600px;
     margin: 0 auto
 }
+
+.custom-orange {
+    background: #ff7e67;
+}
+
+.custom-blue {
+    background: #649dad;
+}
+
