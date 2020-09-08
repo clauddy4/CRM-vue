@@ -4,7 +4,7 @@
       <h3>{{ 'History_Title' | localize }}</h3>
     </div>
 
-    <div class="history-chart">
+    <div class="history-chart" :class="!records.length ? 'hidden' : ''">
       <canvas ref="canvas"></canvas>
     </div>
 
@@ -109,3 +109,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped></style>
