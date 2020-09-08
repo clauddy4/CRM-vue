@@ -9,14 +9,15 @@
 
     <p class="center" v-else-if="!categories.length">
       {{ 'NoCategories' | localize }}.
-      <router-link to="/categories">Добавить</router-link>
+      <router-link to="/categories">{{ 'Add' | localize }}</router-link>
     </p>
 
     <section v-else>
       <div v-for="cat in categories" :key="cat.id">
         <p>
           <strong>{{ cat.title }}:</strong>
-          {{ cat.spend | currency }} из {{ cat.limit | currency }}
+          {{ cat.spend | currency }} {{ 'Of' | localize }}
+          {{ cat.limit | currency }}
         </p>
         <div class="progress" v-tooltip="cat.tooltip">
           <div
@@ -32,6 +33,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import localizeFilter from '../filters/localize.filter'
 import currencyFilter from '../filters/currency.filter'
 
 export default {
@@ -62,7 +64,7 @@ export default {
 
       const tooltipValue = cat.limit - spend
       const tooltip = `${
-        tooltipValue < 0 ? 'Превышение на' : 'Осталось'
+        tooltipValue < 0 ? localizeFilter('MoreThan') : localizeFilter('Stayed')
       } ${currencyFilter(Math.abs(tooltipValue))}`
 
       return {

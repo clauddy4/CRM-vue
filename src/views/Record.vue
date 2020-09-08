@@ -8,7 +8,7 @@
 
     <p class="center" v-else-if="!categories.length">
       {{ 'NoCategories' | localize }}.
-      <router-link to="/categories">Добавить</router-link>
+      <router-link to="/categories">{{ 'Add' | localize }}</router-link>
     </p>
 
     <form class="form" v-else @submit.prevent="submitHandler">
@@ -43,7 +43,7 @@
             value="outcome"
             v-model="type"
           />
-          <span>Расход</span>
+          <span>{{ 'Outcome' | localize }}</span>
         </label>
       </p>
 
@@ -135,7 +135,7 @@ export default {
         } catch (e) {}
       } else {
         this.$message(
-          `Недостаточно средств на счете (${this.amount - this.info.bill})`
+          localizeFilter('NotEnoughMoney') + `(${this.amount - this.info.bill})`
         )
       }
     },

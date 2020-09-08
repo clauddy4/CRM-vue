@@ -4,7 +4,7 @@
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
         <router-link to="/history" class="breadcrumb">{{
-          'Menu_History' | lhocalize
+          'Menu_History' | localize
         }}</router-link>
         <a @click.prevent class="breadcrumb">
           {{ record.type === 'income' ? 'Income' : 'Outcome' | localize }}
