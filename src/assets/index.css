@@ -61,9 +61,13 @@ body {
     padding: 0 20px !important;
 }
 
-/*.waves-effect .waves-custom .waves-ripple {*/
-/* background-color: rgba(30, 95, 116, 0.70); */
-/*}*/
+a > i .fas {
+    margin-right: 11px !important;
+}
+
+#app > div > div > ul > li > a > i {
+    margin: 0 12px 0 0 !important;
+}
 
 .navbar {
     background: #133b5c;

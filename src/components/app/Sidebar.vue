@@ -8,9 +8,9 @@
       active-class="active"
       :to="link.url"
       :exact="link.exact"
-    >
-      <i :class="link.icon"></i
-      ><a href="#" class="waves-effect waves-light pointer">{{ link.title }}</a>
+      ><a href="#" class="waves-effect waves-light pointer"
+        ><i :class="link.icon"></i>{{ link.title }}</a
+      >
     </router-link>
   </ul>
 </template>
@@ -56,12 +56,10 @@ export default {
 
 <style scoped lang="scss">
 .router-link {
-  display: flex;
   text-transform: uppercase;
 
   i {
     align-self: center;
-    margin-left: 20px;
   }
 }
 </style>
