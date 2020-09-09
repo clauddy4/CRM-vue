@@ -57,6 +57,10 @@ body {
     transform: translateX(0)
 }
 
+.sidenav li>a {
+    padding: 0 20px !important;
+}
+
 /*.waves-effect .waves-custom .waves-ripple {*/
 /* background-color: rgba(30, 95, 116, 0.70); */
 /*}*/
@@ -69,12 +73,16 @@ body {
     left: 0;
     width: 100%;
     height: 64px!important;
-    padding: 0 2rem;
+    padding: 0 20px;
     z-index: 1000
 }
 
 .navbar-left > span {
     color: #ececec !important;
+}
+
+.navbar-left > a {
+    margin-right: 20px !important;
 }
 
 .nav-wrapper {
@@ -208,10 +216,10 @@ body {
 }
 
 .custom-orange {
-    background: #ff7e67;
+    background: #ffc93c;
 }
 
 .custom-blue {
-    background: #649dad;
+    background: #64958f;
 }
 

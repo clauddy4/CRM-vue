@@ -1,6 +1,7 @@
 <template>
   <ul class="sidenav app-sidenav" :class="{ open: value }">
     <router-link
+      class="router-link"
       v-for="link in links"
       :key="link.url"
       tag="li"
@@ -8,7 +9,8 @@
       :to="link.url"
       :exact="link.exact"
     >
-      <a href="#" class="waves-effect waves-light pointer">{{ link.title }}</a>
+      <i :class="link.icon"></i
+      ><a href="#" class="waves-effect waves-light pointer">{{ link.title }}</a>
     </router-link>
   </ul>
 </template>
@@ -21,14 +23,45 @@ export default {
   props: ['value'],
   data: () => ({
     links: [
-      { title: localizeFilter('Menu_Bill'), url: '/', exact: true },
-      { title: localizeFilter('Menu_History'), url: '/history' },
-      { title: localizeFilter('Menu_Planning'), url: '/planning' },
-      { title: localizeFilter('Menu_NewRecord'), url: '/record' },
-      { title: localizeFilter('Menu_Category'), url: '/categories' },
+      {
+        title: localizeFilter('Menu_Bill'),
+        url: '/',
+        icon: 'fas fa-wallet',
+        exact: true,
+      },
+      {
+        title: localizeFilter('Menu_History'),
+        url: '/history',
+        icon: 'fas fa-history',
+      },
+      {
+        title: localizeFilter('Menu_Planning'),
+        url: '/planning',
+        icon: 'fas fa-list-ul',
+      },
+      {
+        title: localizeFilter('Menu_NewRecord'),
+        url: '/record',
+        icon: 'fas fa-edit',
+      },
+      {
+        title: localizeFilter('Menu_Category'),
+        url: '/categories',
+        icon: 'fas fa-address-card',
+      },
     ],
   }),
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.router-link {
+  display: flex;
+  text-transform: uppercase;
+
+  i {
+    align-self: center;
+    margin-left: 20px;
+  }
+}
+</style>

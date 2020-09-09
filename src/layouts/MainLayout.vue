@@ -12,10 +12,7 @@
       </main>
 
       <div class="fixed-action-btn">
-        <router-link
-          class="btn-floating btn-large deep-orange lighten-1"
-          to="/record"
-        >
+        <router-link class="btn-floating btn-large cyan accent-3" to="/record">
           <i class="large material-icons">add</i>
         </router-link>
       </div>

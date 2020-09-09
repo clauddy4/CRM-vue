@@ -2,7 +2,7 @@
   <div class="col s12 m6 l4">
     <div class="card custom-orange bill-card">
       <div class="card-content white-text">
-        <span class="card-title">{{ 'BillInCurrency' | localize }}</span>
+        <span class="card-title">{{ 'OnAccount' | localize }}</span>
 
         <p v-for="cur of currencies" :key="cur" class="currency-line">
           <span>

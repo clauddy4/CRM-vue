@@ -4,7 +4,7 @@
       <h3>Счет</h3>
 
       <button
-        class="btn waves-effect waves-light deep-orange lighten-1 btn-small"
+        class="btn waves-effect waves-light cyan accent-3 btn-small"
         @click="refresh"
       >
         <i class="material-icons">refresh</i>
