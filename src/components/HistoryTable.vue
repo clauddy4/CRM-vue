@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-      <tr v-for="(record, idx) in records" :лун="record.id">
+      <tr v-for="(record, idx) in records" :key="record.id">
         <td>{{ idx + 1 }}</td>
         <td>{{ record.amount | currency }}</td>
         <td>{{ record.date | date('datetime') }}</td>

@@ -3,7 +3,9 @@ import Vuex from 'vuex';
 import auth from './auth';
 import info from './info.js';
 import category from './category';
+import goals from './goals';
 import record from './record';
+import g_record from './g_record';
 
 Vue.use(Vuex)
 
@@ -23,7 +25,7 @@ export default new Vuex.Store({
     error: s => s.error
   },
   modules: {
-    auth, info, category, record
+    auth, info, category, record, goals, g_record
   },
   actions: {
     async fetchCurrency() {

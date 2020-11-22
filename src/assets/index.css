@@ -250,3 +250,8 @@ input:focus {
 .switch {
     margin: 0 5px 10px;
 }
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
