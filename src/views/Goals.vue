@@ -28,7 +28,7 @@
       <div v-for="g in goals" :key="g.id">
         <p>
           <strong>{{ g.title }}:</strong>
-          {{ 'SavedMoney' | localize }} {{ g.spend | currency }} {{ 'Of' | localize }}
+          {{ 'SavedMoney' | localize }} {{ g.saved | currency }} {{ 'Of' | localize }}
           {{ g.limit | currency }}
         </p>
         <div class="progress" v-tooltip="g.tooltip">
@@ -58,23 +58,26 @@ export default {
     ...mapGetters(['info']),
   },
   async mounted() {
-    const records = await this.$store.dispatch('fetchRecords')
+    const g_records = await this.$store.dispatch('fetchGRecords')
     const goals = await this.$store.dispatch('fetchGoals')
 
     this.goals = goals.map((g) => {
-      const spend = records
+      const saved = g_records
         .filter((r) => r.goalId === g.id)
-        .filter((r) => r.type === 'outcome')
-        .reduce((total, record) => {
-          return (total += +record.amount)
+        .reduce((total, g_record) => {
+          if (g_record.type === 'income') {
+            return (total += +g_record.amount)
+          } else {
+            return (total -= +g_record.amount)
+          }
         }, 0)
 
-      const percent = (100 * spend) / g.limit
+      const percent = (100 * saved) / g.limit
       const progress = percent > 100 ? 100 : percent
       const progressColor =
-        percent < 60 ? 'green' : percent < 100 ? 'yellow' : 'red'
+        percent < 30 ? 'red' : percent < 90 ? 'yellow' : 'green'
 
-      const tooltipValue = g.limit - spend
+      const tooltipValue = g.limit - saved
       const tooltip = `${
         tooltipValue < 0 ? localizeFilter('MoreThan') : localizeFilter('Stayed')
       } ${currencyFilter(Math.abs(tooltipValue))}`
@@ -83,7 +86,7 @@ export default {
         ...g,
         progress,
         progressColor,
-        spend,
+        saved,
         tooltip,
       }
     })

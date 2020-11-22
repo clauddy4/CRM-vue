@@ -18,7 +18,7 @@
             v-if="$v.title.$dirty && !$v.title.required"
             class="helper-text invalid"
           >
-            {{ 'Message_CategoryTitle' | localize }}
+            {{ 'Message_GoalTitle' | localize }}
           </span>
         </div>
 
@@ -80,7 +80,7 @@ export default {
         this.title = ''
         this.limit = 1
         this.$v.$reset()
-        this.$message(localizeFilter('Category_HasBeenCreated'))
+        this.$message(localizeFilter('Goal_HasBeenCreated'))
         this.$emit('created', goal)
       } catch (e) {}
     },

@@ -84,32 +84,32 @@ export default {
     goals: [],
     select: null,
     goal: null,
-    type: 'outcome',
+    type: 'income',
     amount: 1,
     description: '',
   }),
   methods: {
     async submitHandler() {
-      try {
-        console.log("heeere")
-        await this.$store.dispatch('createGRecord', {
-          goalId: this.goal,
-          amount: this.amount,
-          type: this.type,
-          date: new Date().toJSON(),
-        })
-        const bill =
-          this.type === 'income'
-            ? this.info.bill + this.amount
-            : this.info.bill - this.amount
+      if (this.canCreateRecord) {
+        try {
+          await this.$store.dispatch('createGRecord', {
+            goalId: this.goal,
+            amount: this.amount,
+            type: this.type,
+            date: new Date().toJSON(),
+          })
+          const bill =
+            this.type === 'income'
+              ? this.info.bill + this.amount
+              : this.info.bill - this.amount
 
-        await this.$store.dispatch('updateInfo', { bill })
-        this.$message(localizeFilter('RecordHasBeenCreated'))
-        this.$v.$reset()
-        this.amount = 1
-        this.description = ''
-      } catch (e) {}
-
+          await this.$store.dispatch('updateInfo', { bill })
+          this.$message(localizeFilter('RecordHasBeenCreated'))
+          this.$v.$reset()
+          this.amount = 1
+          this.description = ''
+        } catch (e) {}
+      }
     },
   },
   computed: {
