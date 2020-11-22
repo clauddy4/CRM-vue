@@ -34,6 +34,22 @@
                 >{{ 'Exit' | localize }}
               </a>
             </li>
+            <li>
+              <span href="#" class="black-text navbar-span">
+                <i class="material-icons">language</i
+                >{{ 'Language' | localize }}
+              </span>
+              <form @submit.prevent="submitHandler">
+                <div class="switch">
+                  <label>
+                    English
+                    <input type="checkbox" v-model="isRuLocale" />
+                    <span class="lever"></span>
+                    Русский
+                  </label>
+                </div>
+              </form>
+            </li>
           </ul>
         </li>
       </ul>
@@ -42,25 +58,48 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'Navbar',
   data: () => ({
     date: new Date(),
     interval: null,
     dropdown: null,
+    isRuLocale: true,
   }),
   methods: {
+    ...mapActions(['updateInfo']),
     async logout() {
       await this.$store.dispatch('logout')
       this.$router.push('/login?message=logout')
     },
+    async submitHandler() {
+      try {
+        await this.updateInfo({
+          locale: this.isRuLocale ? 'ru-RU' : 'en-US',
+        })
+      } catch (e) {}
+    },
+  },
+  watch: {
+      isRuLocale() {
+        this.updateInfo({
+          locale: this.isRuLocale ? 'ru-RU' : 'en-US',
+        })
+      }
   },
   computed: {
+    ...mapGetters(['info']),
     name() {
       return this.$store.getters.info.name
     },
   },
   mounted() {
+    this.isRuLocale = this.$store.getters.info.locale === 'ru-RU'
+    setTimeout(() => {
+      M.updateTextFields()
+    })
     this.interval = setInterval(() => {
       this.date = new Date()
     }, 1000)

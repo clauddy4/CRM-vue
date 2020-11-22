@@ -30,7 +30,7 @@
           Русский
         </label>
       </div>
-      <button class="btn waves-effect waves-light" type="submit">
+      <button class="btn waves-effect waves-light cyan lighten-1" type="submit">
         {{ 'Refresh' | localize }}
         <i class="material-icons right">send</i>
       </button>
