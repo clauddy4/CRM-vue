@@ -40,6 +40,11 @@ export default {
         icon: 'fas fa-list-ul',
       },
       {
+        title: localizeFilter('Menu_Goals'),
+        url: '/goals',
+        icon: 'fas fa-coins',
+      },
+      {
         title: localizeFilter('Menu_NewRecord'),
         url: '/record',
         icon: 'fas fa-edit',

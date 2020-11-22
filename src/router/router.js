@@ -33,6 +33,12 @@ const router =  new Router({
       component: () => import('../views/Categories.vue')
     },
     {
+      path: '/goals-editor',
+      name: 'goals-editor',
+      meta: {layout: 'main', auth: true},
+      component: () => import('../views/GoalsEditor.vue')
+    },
+    {
       path: '/detail/:id',
       name: 'detail',
       meta: {layout: 'main', auth: true},
@@ -51,6 +57,12 @@ const router =  new Router({
       component: () => import('../views/Planning.vue')
     },
     {
+      path: '/goals',
+      name: 'goals',
+      meta: {layout: 'main', auth: true},
+      component: () => import('../views/Goals.vue')
+    },
+    {
       path: '/profile',
       name: 'profile',
       meta: {layout: 'main', auth: true},
@@ -61,6 +73,12 @@ const router =  new Router({
       name: 'record',
       meta: {layout: 'main', auth: true},
       component: () => import('../views/Record.vue')
+    },
+    {
+      path: '/g-record',
+      name: 'g-record',
+      meta: {layout: 'main', auth: true},
+      component: () => import('../views/GRecord.vue')
     }
   ]
 })
