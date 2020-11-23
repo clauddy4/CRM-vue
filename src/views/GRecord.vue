@@ -100,8 +100,8 @@ export default {
           })
           const bill =
             this.type === 'income'
-              ? this.info.bill + this.amount
-              : this.info.bill - this.amount
+              ? this.info.bill - this.amount
+              : this.info.bill + this.amount
 
           await this.$store.dispatch('updateInfo', { bill })
           this.$message(localizeFilter('RecordHasBeenCreated'))

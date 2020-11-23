@@ -255,3 +255,8 @@ input:focus {
     display: flex;
     justify-content: space-between;
 }
+
+.breadcrumb,
+.breadcrumb:before {
+    color: #555 !important;
+}

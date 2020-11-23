@@ -8,7 +8,7 @@
     <Loader v-if="loading" />
 
     <p class="center" v-else-if="!goals.length">
-      {{ 'NoCategories' | localize }}.
+      {{ 'NoGoals' | localize }}.
       <router-link to="/goals-editor">{{ 'Add' | localize }}</router-link>
     </p>
 
