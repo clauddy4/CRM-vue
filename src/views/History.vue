@@ -58,7 +58,7 @@ export default {
   methods: {
     setup(categories) {
       this.setupPagination(
-        this.records.map((record) => {
+        this.records.slice().reverse().map((record) => {
           return {
             ...record,
             categoryName: categories.find((c) => c.id === record.categoryId)

@@ -22,9 +22,9 @@
       </div>
 
       <p>
-        <label>
+        <label class="radio-label income">
           <input
-            class="with-gap"
+            class="radio-btn"
             name="type"
             type="radio"
             value="income"
@@ -35,9 +35,9 @@
       </p>
 
       <p>
-        <label>
+        <label class="radio-label outcome">
           <input
-            class="with-gap"
+            class="radio-btn"
             name="type"
             type="radio"
             value="outcome"

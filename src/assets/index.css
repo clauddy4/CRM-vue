@@ -260,3 +260,42 @@ input:focus {
 .breadcrumb:before {
     color: #555 !important;
 }
+
+
+
+.radio-label {
+    width: 80px  !important;
+    display: flex !important;
+    text-align: center !important;
+}
+
+.radio-label span:before,
+.radio-label span:after {
+    display: none !important;
+}
+
+.radio-label span {
+    border: 2px #bbb solid !important;
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 5px 0 !important;
+    display: unset !important;
+    width: 100% !important;
+    height: unset !important;
+    font-weight: bold;
+}
+
+.income [type="radio"]:checked+span{
+    border: 2px #28df99 solid !important;
+    background-color: #d2f6c5;
+}
+
+.outcome [type="radio"]:checked+span{
+    border: 2px #c05555 solid !important;
+    background-color: #ffcac2;
+}
+
+.outcome [type="radio"] + span {
+    margin-bottom: 20px;
+}
+
