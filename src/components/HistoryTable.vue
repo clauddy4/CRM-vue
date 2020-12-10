@@ -24,11 +24,11 @@
         </td>
         <td>
           <button
-            v-tooltip="'Открыть запись'"
+            v-tooltip="'Редактировать запись'"
             class="btn-small btn"
             @click="$router.push('/detail/' + record.id)"
           >
-            <i class="material-icons">open_in_new</i>
+            <i class="material-icons">create</i>
           </button>
         </td>
       </tr>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import localizeFilter from '../filters/localize.filter'
+
 export default {
   name: 'HistoryTable',
   props: {
@@ -45,6 +47,11 @@ export default {
       type: Array,
     },
   },
+  data() {
+    record: {
+      toolip = localizeFilter('Stayed')
+    }
+  }
 }
 </script>
 

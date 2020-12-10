@@ -11,6 +11,15 @@ export default {
                 throw e
             }
         },
+        async updateRecord({dispatch, commit}, {amount, description, id}) {
+            try {
+                const uid = await dispatch('getUserId')
+                await firebase.database().ref(`/user/${uid}/record`).child(id).update({amount, description})
+            } catch (e) {
+                commit('setError', e)
+                throw e
+            }
+        },
         async fetchRecords({commit, dispatch}) {
             try {
                 const uid = await dispatch('getUserId')
