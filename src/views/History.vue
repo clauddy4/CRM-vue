@@ -49,6 +49,9 @@ export default {
   }),
   async mounted() {
     this.records = await this.$store.dispatch('fetchRecords')
+    this.records = this.records.filter(arr =>
+      arr.date.substr(5,2) == '12'
+    )
     const categories = await this.$store.dispatch('fetchCategories')
 
     this.setup(categories)
@@ -56,6 +59,16 @@ export default {
     this.loading = false
   },
   methods: {
+    monthBuilder(month) {
+      switch(month) {
+        case '11':
+          return 'November'
+          break;
+        case '12':
+          return 'December'
+          break;
+      }
+    },
     setup(categories) {
       this.setupPagination(
         this.records.slice().reverse().map((record) => {
