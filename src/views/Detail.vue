@@ -20,8 +20,8 @@
             }"
           >
             <div class="card-content white-text">
-              <p>{{ 'Description' | localize }}: {{ record.description }}</p>
-              <p>{{ 'Amount' | localize }}: {{ record.amount | currency }}</p>
+              <p>{{ 'Description' | localize }}: {{ description }}</p>
+              <p>{{ 'Amount' | localize }}: {{ amount | currency }}</p>
               <p>{{ 'Category' | localize }}: {{ record.categoryName }}</p>
 
               <small>{{ record.date | date('datetime') }}</small>

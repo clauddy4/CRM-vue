@@ -47,11 +47,6 @@ export default {
       type: Array,
     },
   },
-  data() {
-    record: {
-      toolip = localizeFilter('Stayed')
-    }
-  }
 }
 </script>
 

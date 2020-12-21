@@ -30,6 +30,16 @@ export default {
                 throw e
             }
         },
+        async fetchRecordDates({commit, dispatch}) {
+            try {
+                const uid = await dispatch('getUserId')
+                const dates = (await firebase.database().ref(`/user/${uid}/record/date`).once('value')).val() || {}
+                return Object.keys(dates).map(key => ({...dates[key], id: key}))
+            } catch (e) {
+                commit('setError', e)
+                throw e
+            }
+        },
         async fetchRecordById({commit, dispatch}, id) {
             try {
                 const uid = await dispatch('getUserId')
