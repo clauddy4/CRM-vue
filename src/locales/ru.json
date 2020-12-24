@@ -26,6 +26,7 @@
   "Goal_HasBeenUpdated": "Цель упешно обновлена",
   "Record_HasBeenUpdated": "Запись упешно обновлена",
   "SelectCategory": "Выберите категорию",
+  "SelectPeriod": "Выберите период",
   "SelectGoal": "Выберите цель",
   "AddGoal": "Добавить цель",
   "Amount": "Сумма",
@@ -75,6 +76,19 @@
   "EmailInUse": "Email уже занят",
   "Error": "Ошибка",
   "Language": "Язык",
-  "OnAccount": "На вашем счету"
+  "OnAccount": "На вашем счету",
+  "ForAllTheTimes": "За всё время",
+  "January": "Январь",
+  "February": "Февраль",
+  "March": "Март",
+  "April": "Апрель",
+  "May": "Май",
+  "June": "Июнь",
+  "July": "Июль",
+  "August": "Август",
+  "September": "Сентябрь",
+  "October": "Октябрь",
+  "November": "Ноябрь",
+  "December": "Декабрь"
 }
 

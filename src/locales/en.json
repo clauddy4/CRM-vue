@@ -26,6 +26,7 @@
   "Goal_HasBeenUpdated": "Goal has been updated",
   "Record_HasBeenUpdated": "Record has been updated",
   "SelectCategory": "Select category",
+  "SelectPeriod": "Select a period",
   "SelectGoal": "Select goal",
   "AddGoal": "Add goal",
   "Amount": "Amount",
@@ -75,5 +76,18 @@
   "EmailInUse": "Email is already in use",
   "Error": "Error",
   "Language": "Language",
-  "OnAccount": "On your account"
+  "OnAccount": "On your account",
+  "ForAllTheTimes": "All the times",
+  "January": "January",
+  "February": "February",
+  "March": "March",
+  "April": "April",
+  "May": "May",
+  "June": "June",
+  "July": "July",
+  "August": "August",
+  "September": "September",
+  "October": "October",
+  "November": "November",
+  "December": "December"
 }
