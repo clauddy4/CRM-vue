@@ -1,5 +1,7 @@
 # CRM
 
+Database course project
+
 ## Project setup
 ```
 npm install
